@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-from PIL import Image
 
 # Page configuration
 st.set_page_config(
@@ -19,8 +18,6 @@ st.markdown("""
     background-color: #1f2937;
     color: #e5e7eb;
 }
-
-/* Header styles */
 .header {
     color: #93c5fd;
     font-size: 32px;
@@ -35,8 +32,6 @@ st.markdown("""
     margin-top: 30px;
     margin-bottom: 10px;
 }
-
-/* Info box */
 .info-box {
     background-color: #1f2937;
     border-left: 6px solid #3b82f6;
@@ -47,8 +42,6 @@ st.markdown("""
     color: #f3f4f6;
     margin-bottom: 30px;
 }
-
-/* Input and select styling */
 .stNumberInput input, .stSelectbox div[data-baseweb="select"] {
     background-color: #374151;
     color: #e5e7eb;
@@ -58,8 +51,6 @@ st.markdown("""
 .stSelectbox div[data-baseweb="select"] > div {
     color: #e5e7eb;
 }
-
-/* Center form button */
 .center-button {
     display: flex;
     justify-content: center;
@@ -77,8 +68,6 @@ st.markdown("""
 .stButton>button:hover {
     background-color: #60a5fa;
 }
-
-/* Prediction box */
 .prediction-box {
     background-color: #2563eb;
     color: white;
@@ -90,7 +79,6 @@ st.markdown("""
     margin-top: 30px;
     line-height: 1.6;
 }
-
 .prediction-box h6 {
     color: #d1d5db;
     text-align: left;
@@ -106,9 +94,6 @@ model = model_data["model"]
 label_encoders = model_data["label_encoders"]
 scaler = model_data["scaler"]
 feature_names = model_data["feature_names"]
-
-# Load supporting assets
-eval_plot = Image.open("images/plot.png")
 
 # Header
 st.markdown('<div class="header">💼 Employee Salary Predictor</div>', unsafe_allow_html=True)
@@ -162,7 +147,3 @@ if submit_button:
         📈 Accuracy may vary depending on job type and experience levels. </h6>
     </div>
     """, unsafe_allow_html=True)
-
-# Evaluation section
-st.markdown('<div class="subheader">📉 Model Evaluation</div>', unsafe_allow_html=True)
-st.image(eval_plot, caption="Actual vs Predicted Salary", use_container_width=True)
